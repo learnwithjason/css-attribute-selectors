@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS Attribute Selectors</title>
+
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/burger.css@0.0.2/burger.css"
+      crossorigin="anonymous"
+    />
+
+    <style>
+      .btn {
+        background: gold;
+        border: 1px solid currentColor;
+        color: firebrick;
+        font-size: 0.5rem;
+        margin: 0.25rem;
+        padding: 0.25rem 0.5rem;
+      }
+
+      .btn[disabled] {
+        opacity: 0.5;
+      }
+
+      .btn[aria-disabled='true'] {
+        opacity: 0.5;
+      }
+
+      section {
+        align-items: baseline;
+        display: flex;
+        gap: 0.5rem;
+        justify-content: center;
+        margin: 1rem auto 0;
+        width: 90vw;
+      }
+
+      section img {
+        width: 150px;
+      }
+
+      img:not([alt]) {
+        outline: 3px dashed firebrick;
+      }
+
+      a {
+        font-size: 0.5rem;
+      }
+
+      a[href="https://jason.af"]
+      {
+        color: crimson;
+        font-family: comic sans ms;
+        font-size: 0.75rem;
+      }
+
+      a[href^="http://"]
+      {
+        outline: 3px dashed firebrick;
+      }
+
+      a[href*='chan.dev'] {
+        font-size: 1rem;
+      }
+
+      img[src$='.png'] {
+        outline: 3px solid crimson;
+      }
+
+      [data-avatar~='small'] {
+        width: 40px;
+      }
+
+      [data-avatar~='round'] {
+        border-radius: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <section>
+      <button class="btn">Beep</button>
+      <button class="btn" disabled>Boop</button>
+      <button class="btn" aria-disabled="false">Burger</button>
+      <button class="btn">Butts</button>
+    </section>
+
+    <section>
+      <img
+        data-avatar="round"
+        src="https://chan.dev/avatars/latest"
+        alt="Chantastic"
+      />
+      <img
+        data-avatar="small round"
+        src="https://github.com/jlengstorf.png"
+        alt=""
+      />
+      <img data-avatar="small" src="https://github.com/ajcwebdev.png" />
+    </section>
+
+    <section>
+      <a href="https://jason.af">jason.af</a>
+      <a href="https://chan.dev">chan.dev</a>
+      <a href="http://ntl.fyi/cli">ntl.fyi/cli</a>
+    </section>
+
+    <section>
+      <ul
+        data-burger
+        data-burger--bun="toasted"
+        data-burger--patty="cook:medium-rare"
+      >
+        <li data-bun="crown"></li>
+        <li data-cheese></li>
+        <li data-patty="weight:70g"></li>
+        <li data-cheese></li>
+        <li data-patty="weight:70g"></li>
+        <li data-pickles></li>
+        <li data-mustard></li>
+        <li data-bun="heel"></li>
+      </ul>
+    </section>
+  </body>
+</html>
